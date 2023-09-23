@@ -16,9 +16,7 @@ fun main() {
             println("Добро пожаловать!")
             break
         } else {
-            println("Неправильный ответ. Повторно пройдите тест.")
-            numberOfTrials--
-
+            println("Неправильный ответ. Повторно пройдите тест.${numberOfTrials--}")
         }
         if (numberOfTrials == 0) {
             println("Доступ запрещён.")
