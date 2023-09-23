@@ -10,9 +10,9 @@ fun authorization() {
     } else {
         println("Неверный пароль\n$PASSWORD_REQUEST")
         userPassword = readln()
-    }
-    if (userPassword == userPasswordRegistration) {
-        println("Авторизация прошла успешно")
+        if (userPassword == userPasswordRegistration) {
+            println("Авторизация прошла успешно")
+        }
     }
 }
 
