@@ -19,5 +19,4 @@ fun main() {
 
     if (numberOfTrials == 0) println("Было загадано число $randomNumber")
 
-
 }
