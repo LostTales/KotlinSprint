@@ -7,9 +7,10 @@ fun main() {
 
     while (second > 0) {
         second--
+        Thread.sleep(1000)
         println(second)
-        if (second == 0) {
-            println("Прошло $userInput секунд")
-        }
     }
+
+    println("Прошло $userInput секунд")
+
 }
