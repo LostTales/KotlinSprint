@@ -6,9 +6,8 @@ fun main() {
     var second = userInput
 
     while (second > 0) {
-        second--
+        println("Осталось секунд: ${second--}")
         Thread.sleep(1000)
-        println("Осталось секунд: $second")
     }
 
     if (second == 0) println("Время вышло")
