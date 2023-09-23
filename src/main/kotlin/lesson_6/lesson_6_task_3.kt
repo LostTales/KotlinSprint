@@ -7,10 +7,10 @@ fun main() {
 
     while (second > 0) {
         second--
+        Thread.sleep(1000)
         println("Осталось секунд: $second")
-        if (second == 0) {
-            println("Время вышло")
-        }
     }
+
+    if (second == 0) println("Время вышло")
 
 }
