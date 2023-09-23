@@ -6,9 +6,8 @@ fun main() {
     var second = userInput
 
     while (second > 0) {
-        second--
+        println(second--)
         Thread.sleep(1000)
-        println(second)
     }
 
     println("Прошло $userInput секунд")
