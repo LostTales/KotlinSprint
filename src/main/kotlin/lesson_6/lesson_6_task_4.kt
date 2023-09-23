@@ -13,8 +13,7 @@ fun main() {
             println("Это была великолепная игра!")
             return
         } else {
-            println("Неверно. Количество попыток $numberOfTrials")
-            numberOfTrials--
+            println("Неверно. Количество попыток ${numberOfTrials--}")
         }
     }
 
