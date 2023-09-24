@@ -10,6 +10,6 @@ fun main() {
         Thread.sleep(1000)
     }
 
-    if (second == 0) println("Время вышло")
+    println("Время вышло")
 
 }
