@@ -1,18 +1,11 @@
 package lesson_6
 
-var userPasswordRegistration: String = ""
-var userPassword: String = ""
-
-fun authorization() {
+fun authorization(userPassword: String, userPasswordRegistration: String) {
 
     if (userPassword == userPasswordRegistration) {
         println("Авторизация прошла успешно")
     } else {
         println("Неверный пароль\n$PASSWORD_REQUEST")
-        userPassword = readln()
-        if (userPassword == userPasswordRegistration) {
-            println("Авторизация прошла успешно")
-        }
     }
 }
 
@@ -21,7 +14,7 @@ fun main() {
     println("Пройдите регистрацию: создайте логин и пароль\n$LOGIN_REQUEST")
     val userLoginRegistration = readln()
     println(PASSWORD_REQUEST)
-    userPasswordRegistration = readln()
+    var userPasswordRegistration = readln()
 
     println(LOGIN_REQUEST)
     val userLogin = readln()
@@ -34,10 +27,9 @@ fun main() {
     }
     println(loginVerification)
 
-    userPassword = readln()
-
     do {
-        authorization()
+        var userPassword = readln()
+        authorization(userPassword, userPasswordRegistration)
     } while (userPassword != userPasswordRegistration)
 
 }
