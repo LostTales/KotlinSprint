@@ -14,7 +14,7 @@ fun main() {
     println("Пройдите регистрацию: создайте логин и пароль\n$LOGIN_REQUEST")
     val userLoginRegistration = readln()
     println(PASSWORD_REQUEST)
-    var userPasswordRegistration = readln()
+    val userPasswordRegistration = readln()
 
     println(LOGIN_REQUEST)
     val userLogin = readln()
