@@ -28,7 +28,7 @@ fun main() {
     println(loginVerification)
 
     do {
-        var userPassword = readln()
+        val userPassword = readln()
         authorization(userPassword, userPasswordRegistration)
     } while (userPassword != userPasswordRegistration)
 
