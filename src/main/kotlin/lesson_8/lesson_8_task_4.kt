@@ -30,10 +30,7 @@ fun main() {
     println("Введите новый ингредиент:")
     val replaceIngredient = readln()
 
-    for (i in 0 until ingredientsForPancakes.size) {
-        ingredientsForPancakes[index] = replaceIngredient
-        break
-    }
+    ingredientsForPancakes[index] = replaceIngredient
 
     println("Готово! Вы сохранили следующий список:")
     for (i in ingredientsForPancakes) {
