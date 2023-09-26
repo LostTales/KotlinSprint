@@ -31,7 +31,7 @@ fun main() {
     val replaceIngredient = readln()
 
     for (i in 0 until ingredientsForPancakes.size) {
-        if (findIngredient in ingredientsForPancakes) ingredientsForPancakes[index] = replaceIngredient
+        ingredientsForPancakes[index] = replaceIngredient
         break
     }
 
