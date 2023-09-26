@@ -9,13 +9,15 @@ fun main() {
     println("Введите название ингредиента:")
     val findIngredient = readln()
 
-    for (i in ingredientsForPancakes) {
-        if (findIngredient in ingredientsForPancakes) {
+    for (i in ingredientsForPancakes.indices) {
+        if (findIngredient == ingredientsForPancakes[i]) {
             println("Ингредиент [$findIngredient] в рецепте есть")
-            break
+            return
         } else {
-            println("Такого ингредиента в рецепте нет")
-            break
+            continue
         }
     }
+
+    println("Такого ингредиента в рецепте нет")
+
 }
