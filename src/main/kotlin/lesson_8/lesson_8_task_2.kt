@@ -13,8 +13,6 @@ fun main() {
         if (findIngredient == ingredientsForPancakes[i]) {
             println("Ингредиент [$findIngredient] в рецепте есть")
             return
-        } else {
-            continue
         }
     }
 
