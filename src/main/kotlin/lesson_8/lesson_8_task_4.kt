@@ -15,24 +15,18 @@ fun main() {
     println("Введите название заменяемого ингредиента:")
     val findIngredient = readln()
 
-    for (i in ingredientsForPancakes) {
-        if (findIngredient in ingredientsForPancakes) {
-            println("Ингредиент [$findIngredient] в рецепте есть")
+    if (findIngredient in ingredientsForPancakes) {
+        println("Ингредиент [$findIngredient] в рецепте есть")
+        val index = ingredientsForPancakes.indexOf(findIngredient)
+        println("Введите новый ингредиент:")
+        val replaceIngredient = readln()
+        for (i in ingredientsForPancakes.indices) {
+            if (findIngredient in ingredientsForPancakes) ingredientsForPancakes[index] = replaceIngredient
             break
-        } else {
-            println("Такого ингредиента в рецепте нет")
-            return
         }
-    }
-
-    val index = ingredientsForPancakes.indexOf(findIngredient)
-
-    println("Введите новый ингредиент:")
-    val replaceIngredient = readln()
-
-    for (i in 0 until ingredientsForPancakes.size) {
-        if (findIngredient in ingredientsForPancakes) ingredientsForPancakes[index] = replaceIngredient
-        break
+    } else {
+        println("Такого ингредиента в рецепте нет")
+        return
     }
 
     println("Готово! Вы сохранили следующий список:")
