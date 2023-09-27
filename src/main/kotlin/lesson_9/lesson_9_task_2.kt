@@ -1,9 +1,7 @@
 package lesson_9
 
 fun checklist(content: MutableList<String>) {
-    for (i in content) {
-        println("[$i]")
-    }
+    content.forEach { println("[$it]") }
 }
 
 fun main() {
