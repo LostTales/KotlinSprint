@@ -7,6 +7,7 @@ fun main() {
         "масло растительное", "масло сливочное"
     )
 
-    println("В рецепте есть следующие ингредиенты: \n[${ingredientsForPancakes.joinToString("]\n[")}]")
+    println("В рецепте есть следующие ингредиенты:")
+    ingredientsForPancakes.forEach { println("[$it]") }
 
 }
