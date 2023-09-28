@@ -1,5 +1,7 @@
 package lesson_9
 
+import java.util.*
+
 fun checklist(content: MutableList<String>) {
     content.forEach { println("[$it]") }
 }
@@ -12,14 +14,11 @@ fun main() {
     checklist(tea)
 
     println("Желаете добавить ещё?")
-    val userAnswer = readln()
+    val userAnswer = readln().lowercase()
 
     if (userAnswer == ANSWER) {
-        println(
-            "Какой ингредиент вы хотите добавить?" +
-                    "\n(сначала введите порядковый номер от 0 до 3, затем сам ингредиент)"
-        )
-        tea.add(readln().toInt(), readln())
+        println("Какой ингредиент вы хотите добавить?")
+        tea.add(readln())
     } else {
         return
     }
