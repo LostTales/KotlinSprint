@@ -15,8 +15,11 @@ fun main() {
     val userAnswer = readln()
 
     if (userAnswer == ANSWER) {
-        println("Какой ингредиент вы хотите добавить?")
-        tea.add(readln())
+        println(
+            "Какой ингредиент вы хотите добавить?" +
+                    "\n(сначала введите порядковый номер от 0 до 3, затем сам ингредиент)"
+        )
+        tea.add(readln().toInt(), readln())
     } else {
         return
     }
