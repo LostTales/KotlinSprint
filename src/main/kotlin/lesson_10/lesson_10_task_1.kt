@@ -1,30 +1,17 @@
 package lesson_10
 
-fun rollTheDice() = (1..6).random()
+
 fun main() {
 
     println("Ход игрока.")
 
-    var dice1 = rollTheDice()
-    println("Первый бросок, выпало: $dice1")
-
-    var dice2 = rollTheDice()
-    println("Второй бросок, выпало: $dice2")
-
-    val manPoints = dice1 + dice2
-    println("Всего очков:$manPoints")
-
+    val manPoints = rollTheDice()
+    println("Всего очков: $manPoints")
 
     println("Ход компьютера.")
 
-    dice1 = rollTheDice()
-    println("Первый бросок, выпало: $dice1")
-
-    dice2 = rollTheDice()
-    println("Второй бросок, выпало: $dice2")
-
-    val computerPoints = dice1 + dice2
-    println("Всего очков:$computerPoints")
+    val computerPoints = rollTheDice()
+    println("Всего очков: $computerPoints")
 
     val result = if (manPoints > computerPoints) {
         "Победило человечество"
@@ -35,5 +22,17 @@ fun main() {
     }
 
     println(result)
+
+}
+
+fun rollTheDice(): Int {
+
+    val firstRoll = (1..6).random()
+    println("Первый бросок, выпало: $firstRoll")
+
+    val secondRoll = (1..6).random()
+    println("Второй бросок, выпало: $secondRoll")
+
+    return firstRoll + secondRoll
 
 }
