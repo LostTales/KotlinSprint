@@ -4,9 +4,8 @@ package lesson_10
 fun main() {
 
     println("Введите логин и пароль:")
-    val userRegistration = findLength(readln(), readln())
 
-    val check = if (userRegistration >= 2) {
+    val check = if (findLength(readln(), readln())) {
         "Добро пожаловать!"
     } else {
         "Логин или пароль недостаточно длинные."
@@ -15,10 +14,12 @@ fun main() {
 
 }
 
-fun findLength(login: String, password: String): Double {
+fun findLength(login: String, password: String): Boolean {
 
     val passwordLenght = password.length
     val loginLenght = login.length
-    return (passwordLenght + loginLenght) / 4.0
+    return passwordLenght >= STRING_LENGHTH && loginLenght >= STRING_LENGHTH
 
 }
+
+const val STRING_LENGHTH = 4
