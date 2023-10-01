@@ -28,16 +28,14 @@ fun main() {
         }
 
         println("Хотите бросить кости ещё раз? Введите Да или Нет")
-        val userAnswer = readln()
-    } while (repeatGame(userAnswer))
+
+    } while (repeatGame(readln()))
 
     println("Игрок выиграл $manScore партий из $numberOfGame")
 
 }
 
-const val ANSWER = "да"
-
-fun rollTheDice(): Int {
+fun rollTheDice2(): Int {
 
     val firstRoll = (1..6).random()
     println("Первый бросок, выпало: $firstRoll")
@@ -49,8 +47,6 @@ fun rollTheDice(): Int {
 
 }
 
-fun repeatGame(userAnswer: String): Boolean {
+fun repeatGame(userAnswer: String) = userAnswer.lowercase() == ANSWER
 
-    return userAnswer.lowercase() == ANSWER
-
-}
+const val ANSWER = "да"
