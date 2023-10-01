@@ -9,7 +9,7 @@ fun main() {
 
 fun generatePassword(passwordLength: Int) {
 
-    val specialChars = listOf('!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ' ')
+    val specialChars = ' '..'/'
     val digits = '0'..'9'
     var password: String = ""
 
