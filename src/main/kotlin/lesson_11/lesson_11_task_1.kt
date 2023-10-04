@@ -21,5 +21,4 @@ fun main() {
     user1.print()
     println()
     user2.print()
-
 }

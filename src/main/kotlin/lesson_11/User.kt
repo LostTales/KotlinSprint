@@ -10,5 +10,4 @@ class User(
     fun print() {
         println("$id\n$login\n$password\n$email")
     }
-
 }
