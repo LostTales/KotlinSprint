@@ -1,6 +1,5 @@
 package lesson_11
 
-import java.rmi.AlreadyBoundException
 
 fun main() {
 
@@ -21,4 +20,16 @@ fun main() {
     user1.print()
     println()
     user2.print()
+}
+
+class User(
+    val id: Int,
+    val login: String,
+    val password: String,
+    val email: String,
+) {
+
+    fun print() {
+        println("$id\n$login\n$password\n$email")
+    }
 }
