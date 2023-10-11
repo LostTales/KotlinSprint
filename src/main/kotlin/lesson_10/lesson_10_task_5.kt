@@ -30,7 +30,7 @@ fun registerLogin(): String {
 fun registerPassword(): String {
 
     println("Задайте длину пароля:")
-    val userPasswordRegistration = generatePassword(readln())
+    val userPasswordRegistration = generatePassword(readln().toInt())
     println("Пароль:\n$userPasswordRegistration")
     return userPasswordRegistration
 
@@ -38,13 +38,13 @@ fun registerPassword(): String {
 
 fun findLength(login: String) = login.length >= LOGIN_LENGHT
 
-fun generatePassword(passwordLength: String): String {
+fun generatePassword(passwordLength: Int): String {
 
     val specialChars = ' '..'/'
     val digits = '0'..'9'
     var password: String = ""
 
-    for (i in 1..passwordLength.toInt()) {
+    for (i in 1..passwordLength) {
         password += if (i % 2 != 0) {
             specialChars.random()
         } else {
