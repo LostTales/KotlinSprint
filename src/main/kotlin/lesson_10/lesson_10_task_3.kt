@@ -3,11 +3,11 @@ package lesson_10
 fun main() {
 
     println("Задайте длину пароля:")
-    generatePassword1(readln().toInt())
+    generatePassword(readln().toInt())
 
 }
 
-fun generatePassword1(passwordLength: Int) {
+fun generatePassword(passwordLength: Int) {
 
     val specialChars = ' '..'/'
     val digits = '0'..'9'
