@@ -38,45 +38,37 @@ fun main() {
         imageCategory = "burgerImage.jpg",
         nameCategory = "БУРГЕРЫ",
         shortDescriptionCategory = "Рецепты всех\nпопулярных видов\nбургеров",
-        dish = mutableListOf(),
     )
 
     val dessertsCategory = Category(
         imageCategory = "dessertsImage.jpg",
         nameCategory = "ДЕСЕРТЫ",
         shortDescriptionCategory = "Самые вкусные\nрецепты десертов\nспециально для вас",
-        dish = mutableListOf(),
     )
 
     val pizzaCategory = Category(
         imageCategory = "pizzaImage.jpg",
         nameCategory = "ПИЦЦА",
         shortDescriptionCategory = "Пицца на любой вкус\nи цвет. Лучшая\nподборка для тебя",
-        dish = mutableListOf(),
     )
 
     val fishDishesCategory = Category(
         imageCategory = "fishDishesImage.jpg",
         nameCategory = "БЛЮДА ИЗ РЫБЫ",
         shortDescriptionCategory = "Печеная, жареная,\nсушеная, любая рыба\nна твой вкус",
-        dish = mutableListOf(),
     )
 
     val soupCategory = Category(
         imageCategory = "soupImage.jpg",
         nameCategory = "СУП",
         shortDescriptionCategory = "От классики до\nэкзотики: мир в одной\nтарелке",
-        dish = mutableListOf(),
     )
 
     val saladsCategory = Category(
         imageCategory = "saladsImage.jpg",
         nameCategory = "САЛАТЫ",
         shortDescriptionCategory = "Хрустящий\nкалейдоскоп под\nсоусом вдохновения",
-        dish = mutableListOf(),
     )
-
-    val inFavorites = InFavorites(mutableListOf())
 
     screen.createScreen2()
     println()
@@ -92,14 +84,10 @@ fun main() {
     cheeseburger.addOrRemoveFromFavorites(true)
     println()
 
-    screen.turnToAnotherPage()
-    println()
-
-    inFavorites.addToFavorites(mushroomBurgerAndCheese)
-    inFavorites.addToFavorites(classicHamburger)
-    inFavorites.addToFavorites(cheeseburger)
-
-    inFavorites.pintInFavorites()
+    println("ИЗБРАННОЕ")
+    mushroomBurgerAndCheese.printInFavorites()
+    classicHamburger.printInFavorites()
+    cheeseburger.printInFavorites()
     println()
 
     screen.turnToAnotherPage()
@@ -152,7 +140,7 @@ class Dish(
     var numberOfIngredients: List<Int>,
     val unitsOfMeasurement: List<String>,
     val portions: Int,
-    var inFavorites: Boolean = false,
+    var isFavorite: Boolean = false,
 ) {
 
     fun printDish() {
@@ -173,37 +161,17 @@ class Dish(
 
     fun addOrRemoveFromFavorites(userPick: Boolean): Boolean {
         if (userPick) {
-            inFavorites = true
+            isFavorite = true
             println("Блюдо $nameDish добавлено в избранное")
         } else {
-            inFavorites = false
+            isFavorite = false
             println("Блюдо $nameDish удалено из избранного")
         }
-        return inFavorites
+        return isFavorite
     }
 
-}
-
-class InFavorites(
-    var inFavoritesDish: MutableList<Dish>
-) {
-
-    fun addToFavorites(dishAddInFavorites: Dish) {
-        if (dishAddInFavorites.inFavorites) {
-            inFavoritesDish.add(dishAddInFavorites)
-        }
-    }
-
-    fun removeFromFavorites(dishRemoveInFavorites: Dish) {
-        if (dishRemoveInFavorites.inFavorites) {
-            println("Блюдо ${dishRemoveInFavorites.nameDish} удалено из избранного")
-            inFavoritesDish.remove(dishRemoveInFavorites)
-        }
-    }
-
-    fun pintInFavorites() {
-        println("ИЗБРАННОЕ")
-        inFavoritesDish.forEach { println("${it.imageDish}\n${it.nameDish}") }
+    fun printInFavorites() {
+        if (isFavorite) { println("${imageDish}\n${nameDish}") }
     }
 
 }
@@ -212,7 +180,7 @@ class Category(
     val imageCategory: String,
     val nameCategory: String,
     val shortDescriptionCategory: String,
-    var dish: MutableList<Dish>,
+    var dish: MutableList<Dish> = mutableListOf(),
 ) {
 
     fun addCategory(dishAdd: Dish) {
