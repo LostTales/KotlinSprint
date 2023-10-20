@@ -15,9 +15,11 @@ class DailyWeather {
     var nightTemperature = 18
     var hasPrecipitationDuringTheDay = false
 
-    fun printDailyWeather (){
-        println("Информация о погоде:\n- дневная температура $dailyTemperature °C" +
-                "\n- ночная температура $nightTemperature °C" +
-                "\n- наличие осадков в течение суток: $hasPrecipitationDuringTheDay")
+    fun printDailyWeather() {
+        println(
+            "Информация о погоде:\n- дневная температура $dailyTemperature °C" +
+                    "\n- ночная температура $nightTemperature °C" +
+                    "\n- наличие осадков в течение суток: $hasPrecipitationDuringTheDay"
+        )
     }
 }
