@@ -13,12 +13,9 @@ class DailyWeather4(_dailyTemperature: Int, _nightTemperature: Int, _hasPrecipit
 
     init {
         println(
-            String.format(
-                "Информация о погоде:\n- дневная температура %.2f °C" +
-                        "\n- ночная температура %.2f °C" +
-                        "\n- наличие осадков в течение суток: $hasPrecipitationDuringTheDay",
-                dailyTemperature, nightTemperature
-            )
+            "Информация о погоде:\n- дневная температура ${Math.round(dailyTemperature)} °C" +
+                    "\n- ночная температура ${Math.round(nightTemperature)} °C" +
+                    "\n- наличие осадков в течение суток: $hasPrecipitationDuringTheDay"
         )
     }
 
