@@ -13,12 +13,13 @@ class DailyWeather2(_dailyTemperature: Int, _nightTemperature: Int, _hasPrecipit
     var hasPrecipitationDuringTheDay = _hasPrecipitationDuringTheDay
 
     fun printDailyWeather2() {
-        val text = """
+        println(
+            """
             Информация о погоде:
             - дневная температура $dailyTemperature °C"
             - ночная температура $nightTemperature °C"
             - наличие осадков в течение суток: $hasPrecipitationDuringTheDay
         """.trimIndent()
-        println(text)
+        )
     }
 }
