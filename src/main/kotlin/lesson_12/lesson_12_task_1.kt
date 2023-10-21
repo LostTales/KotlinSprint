@@ -7,6 +7,12 @@ fun main() {
     weatherToday.nightTemperature = 20
     weatherToday.hasPrecipitationDuringTheDay = true
     weatherToday.printDailyWeather()
+
+    val newWeatherToday = DailyWeather()
+    newWeatherToday.dailyTemperature = 27
+    newWeatherToday.nightTemperature = 18
+    newWeatherToday.hasPrecipitationDuringTheDay = false
+    newWeatherToday.printDailyWeather()
 }
 
 class DailyWeather {
