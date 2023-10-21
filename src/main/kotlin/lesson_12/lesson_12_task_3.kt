@@ -13,14 +13,18 @@ class DailyWeather3(_dailyTemperature: Int, _nightTemperature: Int, _hasPrecipit
     var hasPrecipitationDuringTheDay = _hasPrecipitationDuringTheDay
 
     fun printDailyWeather3() {
+
         println(
             String.format(
-                "Информация о погоде:\n- дневная температура %.2f °C" +
-                        "\n- ночная температура %.2f °C" +
-                        "\n- наличие осадков в течение суток: $hasPrecipitationDuringTheDay",
-                dailyTemperature, nightTemperature
+                """
+            Информация о погоде:
+            - дневная температура %.2f °C
+            - ночная температура %.2f °C
+            - наличие осадков в течение суток: $hasPrecipitationDuringTheDay
+        """.trimIndent(), dailyTemperature, nightTemperature
             )
         )
+
     }
 }
 
