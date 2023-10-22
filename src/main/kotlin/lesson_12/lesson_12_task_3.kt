@@ -8,9 +8,9 @@ fun main() {
 
 class DailyWeather3(_dailyTemperature: Int, _nightTemperature: Int, _hasPrecipitationDuringTheDay: Boolean) {
 
-    var dailyTemperature = _dailyTemperature - VALUE_DIFFERENCE
-    var nightTemperature = _nightTemperature - VALUE_DIFFERENCE
-    var hasPrecipitationDuringTheDay = _hasPrecipitationDuringTheDay
+    val dailyTemperature = _dailyTemperature - VALUE_DIFFERENCE
+    val nightTemperature = _nightTemperature - VALUE_DIFFERENCE
+    val hasPrecipitationDuringTheDay = _hasPrecipitationDuringTheDay
 
     fun printDailyWeather3() {
 
