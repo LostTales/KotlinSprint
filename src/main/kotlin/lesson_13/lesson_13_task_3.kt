@@ -9,7 +9,12 @@ fun main() {
         SubscriberData3("Мария", 87163456789, "Ромашка"),
         SubscriberData3("Нина", 87163456755, "Гайка")
     )
-    contactList.forEach { println(it.company ?: "<не указано>") }
+
+    val usersCompany = mutableListOf<String>()
+
+    contactList.forEach { it.company?.let { it1 -> usersCompany.add(it1) } }
+
+    usersCompany.forEach { println(it) }
 }
 
 class SubscriberData3(
