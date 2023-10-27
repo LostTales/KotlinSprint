@@ -4,10 +4,10 @@ fun main() {
 
     val liner = LinerShip()
     liner.showShipInformation()
-
+    println()
     val cargoShip = CargoShip()
     cargoShip.showShipInformation()
-
+    println()
     val icebreaker = IcebreakerShip()
     icebreaker.showShipInformation()
 
@@ -22,10 +22,10 @@ open class LinerShip(
     open fun showShipInformation() {
         println(
             """
-            $name
-            $speed
-            $numberOfPassengers
-            $shipTonnage
+            Название корабля: $name
+            Скорость корабля: $speed узлов
+            Кол-во пассажиров: $numberOfPassengers чел.
+            Грузоподъемность: $shipTonnage т
         """.trimIndent()
         )
     }
@@ -47,6 +47,6 @@ class IcebreakerShip(
 ) : LinerShip(name, speed, numberOfPassengers, shipTonnage) {
     override fun showShipInformation() {
         super.showShipInformation()
-        println(isCanCrackIce)
+        println("Возможность колоть лед: $isCanCrackIce")
     }
 }
