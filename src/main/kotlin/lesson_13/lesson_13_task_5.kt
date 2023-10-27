@@ -22,7 +22,7 @@ fun main() {
         val userCompany = readln()
         if (userCompany.lowercase() == STOP2) break
 
-        val userData = SubscriberData5(userName, userPhoneNumber, userCompany)
+        val userData = SubscriberData5(userName, userPhoneNumber.toString(), userCompany)
         contactList.add(userData)
     } while (true)
 
@@ -32,7 +32,7 @@ fun main() {
 
 class SubscriberData5(
     var name: String?,
-    var phoneNumber: Comparable<*>,
+    var phoneNumber: String,
     var company: String? = null,
 ) {
     fun printSubscriberData5() {
