@@ -21,5 +21,4 @@ class SubscriberData3(
     val name: String,
     val phoneNumber: Long,
     val company: String? = null,
-) {
-}
+)
