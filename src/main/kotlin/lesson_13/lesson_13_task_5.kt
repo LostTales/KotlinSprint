@@ -4,27 +4,34 @@ fun main() {
 
     val contactList = mutableListOf<SubscriberData5>()
 
-    do {
+    try {
 
-        println("Введите имя:")
-        val userName = readln()
-        if (userName.lowercase() == STOP2) break
+        do {
 
-        println("Введите номер телефона:")
-        val userPhoneNumber = readln().toLong()
-        if (userPhoneNumber == null) {
-            println("Не указан номер телефона")
-            continue
-        }
-        if (userPhoneNumber.toString().lowercase() == STOP2) break
+            println("Введите имя:")
+            val userName = readln()
+            if (userName.lowercase() == STOP2) break
 
-        println("Введите название компании или пропустите этот шаг нажав Enter:")
-        val userCompany = readln()
-        if (userCompany.lowercase() == STOP2) break
+            println("Введите номер телефона:")
+            val userPhoneNumber = readln().toLong()
+            if (userPhoneNumber == null) {
+                println("Не указан номер телефона")
+                continue
+            }
+            if (userPhoneNumber.toString().lowercase() == STOP2) break
 
-        val userData = SubscriberData5(userName, userPhoneNumber.toString(), userCompany)
-        contactList.add(userData)
-    } while (true)
+            println("Введите название компании или пропустите этот шаг нажав Enter:")
+            val userCompany = readln()
+            if (userCompany.lowercase() == STOP2) break
+
+            val userData = SubscriberData5(userName, userPhoneNumber.toString(), userCompany)
+            contactList.add(userData)
+
+        } while (true)
+
+    } catch (exception: Exception) {
+        println(exception.message)
+    }
 
     contactList.forEach { println(it.printSubscriberData5()) }
 
