@@ -30,7 +30,7 @@ fun main() {
         } while (true)
 
     } catch (exception: Exception) {
-        println(exception.message)
+        println("Exception:\n${exception.message}")
     }
 
     contactList.forEach { println(it.printSubscriberData5()) }
