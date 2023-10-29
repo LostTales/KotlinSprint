@@ -14,10 +14,6 @@ fun main() {
 
             println("Введите номер телефона:")
             val userPhoneNumber = readln().toLong()
-            if (userPhoneNumber == null) {
-                println("Не указан номер телефона")
-                continue
-            }
             if (userPhoneNumber.toString().lowercase() == STOP2) break
 
             println("Введите название компании или пропустите этот шаг нажав Enter:")
