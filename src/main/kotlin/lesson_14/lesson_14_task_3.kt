@@ -1,21 +1,22 @@
 package lesson_14
 
+import kotlin.math.PI
 import kotlin.math.pow
 
 fun main() {
-    val circle1 = Circle(10, "черный")
+    val circle1 = Circle(10, COLOR_BLACK)
     circle1.calculateArea()
     circle1.calculatePerimeter()
     println()
-    val circle2 = Circle(20, "белый")
+    val circle2 = Circle(20, COLOR_WHITE)
     circle2.calculateArea()
     circle2.calculatePerimeter()
     println()
-    val rectangle1 = Rectangle(5, 15, "черный")
+    val rectangle1 = Rectangle(5, 15, COLOR_BLACK)
     rectangle1.calculateArea()
     rectangle1.calculatePerimeter()
     println()
-    val rectangle2 = Rectangle(15, 25, "белый")
+    val rectangle2 = Rectangle(15, 25, COLOR_WHITE)
     rectangle2.calculateArea()
     rectangle2.calculatePerimeter()
     println()
@@ -29,8 +30,8 @@ fun main() {
     var sumPerimetersBlackFigure: Int = 0
     var sumAreaWhiteFigure: Int = 0
 
-    listFigures.forEach { if (it.color == "черный") sumPerimetersBlackFigure += it.calculatePerimeter() }
-    listFigures.forEach { if (it.color == "белый") sumAreaWhiteFigure += it.calculateArea() }
+    listFigures.filter { it.color == COLOR_BLACK }.forEach { sumPerimetersBlackFigure += it.calculatePerimeter() }
+    listFigures.filter { it.color == COLOR_WHITE }.forEach { sumAreaWhiteFigure += it.calculateArea() }
     println()
 
     println(
@@ -53,13 +54,13 @@ class Circle(
     override val color: String,
 ) : Figure() {
     override fun calculateArea(): Int {
-        val result = Math.round(NUMBER_PI * radius.toDouble().pow(NUMBER_2)).toInt()
+        val result = Math.round(PI * radius.toDouble().pow(NUMBER_2)).toInt()
         println("Площадь круга S = $result")
         return result
     }
 
     override fun calculatePerimeter(): Int {
-        val result = (Math.round(NUMBER_2 * NUMBER_PI * radius)).toInt()
+        val result = (Math.round(NUMBER_2 * PI * radius)).toInt()
         println("Периметр круга P = $result")
         return result
     }
@@ -85,4 +86,5 @@ class Rectangle(
 }
 
 const val NUMBER_2 = 2
-const val NUMBER_PI = 3.14
+const val COLOR_BLACK = "черный"
+const val COLOR_WHITE = "белый"
