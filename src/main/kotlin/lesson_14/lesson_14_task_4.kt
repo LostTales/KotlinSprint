@@ -8,8 +8,8 @@ fun main() {
         true,
     )
 
-    val satellitePhobos = SolarSystemObject("Phobos", false, true)
-    val satelliteDeimos = SolarSystemObject("Deimos", false, true)
+    val satellitePhobos = Satellite("Phobos", false, true)
+    val satelliteDeimos = Satellite("Deimos", false, true)
 
     planetMars.addSatellite(satellitePhobos)
     planetMars.addSatellite(satelliteDeimos)
@@ -40,4 +40,10 @@ class Planet(
         println("Планета $name, спутники: ${satellite.joinToString { it.name }}.")
     }
 }
+
+class Satellite(
+    name: String,
+    hasPresenceAtmosphere: Boolean,
+    isSuitableForLanding: Boolean
+) : SolarSystemObject(name, hasPresenceAtmosphere, isSuitableForLanding)
 
