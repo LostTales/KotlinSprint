@@ -20,7 +20,7 @@ class PrecipitationAmount(stats: Double) : WeatherStationStats(stats)
 
 class WeatherServer {
     fun sendStats(send: WeatherStationStats): Any {
-        return if (send.stats is Double) println("Кол-во осадков составит ${send.stats} мм.")
-        else println("Температура ${send.stats} °С.")
+        return if (send is Temperature) println("Температура ${send.stats} °С.")
+        else println("Кол-во осадков составит ${send.stats} мм.")
     }
 }
