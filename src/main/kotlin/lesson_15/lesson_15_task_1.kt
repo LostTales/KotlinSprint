@@ -1,6 +1,7 @@
 package lesson_15
 
 fun main() {
+
     val crucian = Fish("Карась")
     crucian.swim()
     crucian.movementUp()
@@ -13,7 +14,8 @@ fun main() {
     val seagull = Bird("Чайка")
     seagull.flewUp()
     seagull.flewDown()
-    seagull.swimOnTheWater()
+    seagull.landOnTheWater()
+    seagull.swim()
     seagull.doveIntoWater()
 
     println()
@@ -21,51 +23,42 @@ fun main() {
     val duck = Bird("Утка")
     duck.flewUp()
     duck.flewDown()
-    duck.swimOnTheWater()
+    duck.landOnTheWater()
+    duck.swim()
     duck.doveIntoWater()
 
 }
 
-interface MoveFish {
-
-    val name: String
-    fun swim() {
-        println("Рыба $name плывет.")
-    }
-
-    fun movementUp() {
-        println("Рыба $name плывет вверх.")
-    }
-
-    fun movementDown() {
-        println("Рыба $name плывет вниз.")
-    }
-
-    fun reversal() {
-        println("Разворот рыбы $name.")
-    }
-
-    fun movementInPlace() {
-        println("Движение рыбы $name на месте.")
-    }
-
-}
-
-interface MoveBird {
+interface Flyable {
 
     val name: String
 
-    fun flewUp() = println("Птица $name полетела вверх.")
-    fun flewDown() = println("Птица $name полетела вниз.")
-    fun swimOnTheWater() = println("Птица $name плывет по воде.")
-    fun doveIntoWater() = println("Птица $name нырнула в воду.")
+    fun flewUp() = println("$name полет вверх.")
+    fun flewDown() = println("$name полет вниз.")
+    fun landOnTheWater() = println("$name посадка на воду.")
+    fun doveIntoWater() = println("$name нырнуть в воду.")
 
 }
 
-class Fish(_name: String) : MoveFish {
+interface Swimmable {
+
+    val name: String
+    fun swim() = println("$name плывет.")
+
+    fun movementUp() = println("$name плывет вверх.")
+
+    fun movementDown() = println("$name плывет вниз.")
+
+    fun reversal() = println("Разворот $name в воде.")
+
+    fun movementInPlace() = println("Движение в воде $name на месте.")
+
+}
+
+class Fish(_name: String) : Swimmable {
     override val name = _name
 }
 
-class Bird(_name: String) : MoveBird {
+class Bird(_name: String) : Flyable, Swimmable {
     override val name = _name
 }
