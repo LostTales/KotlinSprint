@@ -8,7 +8,11 @@ fun main() {
     user1.readForum()
     user1.writeMessage()
     admin.readForum()
-    admin.removeMessage(user1)
+    try {
+        admin.removeMessage(user1)
+    } catch (exception: Exception) {
+        println("Exception:\n${exception.message}")
+    }
     admin.writeMessage()
     admin.removeUser(user1)
 
@@ -26,6 +30,7 @@ class OrdinaryUsers(
     override val name: String,
     val message: MutableList<String> = mutableListOf(),
 ) : Users() {
+
     override fun readForum() {
         println("Пользователь $name читает форум.")
     }
