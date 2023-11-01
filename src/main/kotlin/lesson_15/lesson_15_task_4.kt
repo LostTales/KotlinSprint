@@ -21,10 +21,10 @@ fun main() {
 
 }
 
-abstract class InstrumentAndAccessories {
-    abstract val name: String
-    abstract val number: Int
-}
+abstract class InstrumentAndAccessories(
+    open val name: String = "",
+    open val number: Int = 5,
+)
 
 interface Search {
     fun searchAccessories(search: Instrument) {
@@ -39,8 +39,8 @@ interface Search {
 class Instrument(
     override val name: String,
     override val number: Int,
-    val accessories: MutableList<Accessories> = mutableListOf()
-) : InstrumentAndAccessories(), Search {
+    val accessories: MutableList<Accessories> = mutableListOf(),
+) : InstrumentAndAccessories(name, number), Search {
 
     fun addAccessories(_accessories: Accessories) {
         accessories.add(_accessories)
@@ -57,6 +57,6 @@ class Instrument(
 
 class Accessories(
     override val name: String,
-    override val number: Int
-) : InstrumentAndAccessories()
+    override val number: Int,
+) : InstrumentAndAccessories(name, number)
 
