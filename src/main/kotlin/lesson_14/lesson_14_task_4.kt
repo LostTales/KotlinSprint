@@ -28,10 +28,10 @@ class Planet(
     name: String,
     hasPresenceAtmosphere: Boolean,
     isSuitableForLanding: Boolean,
-    val satellite: MutableList<SolarSystemObject> = mutableListOf<SolarSystemObject>(),
+    val satellite: MutableList<Satellite> = mutableListOf(),
 ) : SolarSystemObject(name, hasPresenceAtmosphere, isSuitableForLanding) {
 
-    fun addSatellite(satelliteAdd: SolarSystemObject) {
+    fun addSatellite(satelliteAdd: Satellite) {
         satellite.add(satelliteAdd)
         println("Объект ${satelliteAdd.name} добавлен в спутники планеты $name.")
     }
