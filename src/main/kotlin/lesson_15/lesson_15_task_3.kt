@@ -2,7 +2,7 @@ package lesson_15
 
 fun main() {
 
-    val user1 = OrdinaryUsers("Alex")
+    val user1 = OrdinaryUser("Alex")
     val admin = Administrator("Jack")
     admin.addUser(user1)
     user1.readForum()
@@ -18,18 +18,17 @@ fun main() {
 
 }
 
-abstract class Users {
+abstract class User(open val name: String = "") {
 
-    abstract val name: String
     abstract fun readForum()
     abstract fun writeMessage()
 
 }
 
-class OrdinaryUsers(
+class OrdinaryUser(
     override val name: String,
     val message: MutableList<String> = mutableListOf(),
-) : Users() {
+) : User(name) {
 
     override fun readForum() {
         println("Пользователь $name читает форум.")
@@ -46,8 +45,8 @@ class OrdinaryUsers(
 
 class Administrator(
     override val name: String,
-    val usersList: MutableList<OrdinaryUsers> = mutableListOf(),
-) : Users() {
+    val usersList: MutableList<OrdinaryUser> = mutableListOf(),
+) : User(name) {
 
     override fun readForum() {
         println("Администратор $name читает форум.")
@@ -57,17 +56,17 @@ class Administrator(
         println("Администратор $name написал сообщение.")
     }
 
-    fun addUser(user: OrdinaryUsers) {
+    fun addUser(user: OrdinaryUser) {
         usersList.add(user)
         println("Добавлен новый пользователь ${user.name}.")
     }
 
-    fun removeUser(user: OrdinaryUsers) {
+    fun removeUser(user: OrdinaryUser) {
         usersList.remove(user)
         println("Удален пользователь ${user.name}.")
     }
 
-    fun removeMessage(user: OrdinaryUsers) {
+    fun removeMessage(user: OrdinaryUser) {
         println("Удалить сообщение №:")
         user.message.removeAt(readln().toInt())
         println("Удалено сообщение пользователя ${user.name}.")
