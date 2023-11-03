@@ -21,10 +21,10 @@ fun main() {
 
 }
 
-abstract class InstrumentAndAccessories(
-    open val name: String = "",
-    open val number: Int = 5,
-)
+abstract class InstrumentAndAccessories {
+    abstract val name: String
+    abstract val number: Int
+}
 
 interface Search {
     fun searchAccessories(search: Instrument) {
@@ -40,7 +40,7 @@ class Instrument(
     override val name: String,
     override val number: Int,
     val accessories: MutableList<Accessories> = mutableListOf(),
-) : InstrumentAndAccessories(name, number), Search {
+) : InstrumentAndAccessories(), Search {
 
     fun addAccessories(_accessories: Accessories) {
         accessories.add(_accessories)
@@ -50,13 +50,11 @@ class Instrument(
             к инструменту $name в кол-ве ${_accessories.number}.
             """.trimIndent()
         )
-
     }
-
 }
 
 class Accessories(
     override val name: String,
     override val number: Int,
-) : InstrumentAndAccessories(name, number)
+) : InstrumentAndAccessories()
 
