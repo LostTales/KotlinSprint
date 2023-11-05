@@ -7,12 +7,12 @@ fun main() {
 
     val user1 = NewUser()
     user1.enterLogin()
-    user1.enterPassword("321k")
+    println(user1.enterPassword("321k"))
 }
 
 class NewUser {
 
-    val login: String = "user"
+    var login: String = "user"
     private val password: String = "321k"
 
     fun enterLogin() {
@@ -23,12 +23,12 @@ class NewUser {
         } while (actualPassword != login)
     }
 
-    fun enterPassword(userPassword: String): Unit {
+    fun enterPassword(userPassword: String): String {
 
         println(PASSWORD_REQUEST_16)
 
-        return if (userPassword != password) println("Неверный пароль.")
-        else println("Добро пожаловать!\nПароль: $userPassword")
+        return if (userPassword != password) "Неверный пароль."
+        else "Добро пожаловать!\nПароль: $userPassword"
     }
 }
 
