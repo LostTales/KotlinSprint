@@ -1,36 +1,41 @@
 package lesson_16
 
-import lesson_10.authorization
-import sun.security.util.Password
 
 fun main() {
 
-    val user1 = NewUser()
-    user1.enterLogin()
-    println(user1.enterPassword("321k"))
+    val user1 = NewUser("user", "321k")
+    user1.loginVerification()
+    println(user1.passwordVerification("321k"))
+    println()
+    val user2 = NewUser("user2", "1wer")
+    user2.loginVerification()
+    println(user2.passwordVerification("222"))
 }
 
-class NewUser {
+class NewUser(
+    private var login: String,
+    private val password: String,
+) {
 
-    var login: String = "user"
-    private val password: String = "321k"
+    fun loginVerification() {
 
-    fun enterLogin() {
         do {
-            println(LOGIN_REQUEST_16)
+            println(LOGIN_REQUEST)
             val actualPassword = readln()
-            if (actualPassword != login) println("Неверный логин.")
+            if (actualPassword != login) println(INCORRECT_LOGIN)
         } while (actualPassword != login)
     }
 
-    fun enterPassword(userPassword: String): String {
+    fun passwordVerification(userPassword: String): String {
 
-        println(PASSWORD_REQUEST_16)
-
-        return if (userPassword != password) "Неверный пароль."
-        else "Добро пожаловать!\nПароль: $userPassword"
+        println(PASSWORD_REQUEST)
+        return if (userPassword != password) INCORRECT_PASSWORD
+        else "$WELCOME\nПароль: $userPassword"
     }
 }
 
-const val LOGIN_REQUEST_16 = "Введите логин:"
-const val PASSWORD_REQUEST_16 = "Введите пароль:"
+private const val LOGIN_REQUEST = "Введите логин:"
+private const val PASSWORD_REQUEST = "Введите пароль:"
+private const val WELCOME = "Добро пожаловать!"
+private const val INCORRECT_PASSWORD = "Неверный пароль."
+private const val INCORRECT_LOGIN = "Неверный логин."
