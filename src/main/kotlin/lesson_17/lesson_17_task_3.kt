@@ -27,20 +27,6 @@ class Package(
                 "$field $NUMBER_OF_FILES $files"
             }
         }
-
-//    var name: String = "favorites"
-//        get() {
-//            return if (isSecretFiles) {
-//                files = 0
-//                "${HIDDEN_DOCUMENTS} $NUMBER_OF_FILES $files"
-//            } else {
-//                "$field $NUMBER_OF_FILES $files"
-//            }
-//        }
-//
-//    var files: Int = 70
-//
-//    var isSecretFiles: Boolean = false
 }
 
 private const val HIDDEN_DOCUMENTS = "скрытая папка"
