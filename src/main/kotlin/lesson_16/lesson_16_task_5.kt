@@ -3,46 +3,42 @@ package lesson_16
 fun main() {
     println("Игра началась!")
 
-    val player1 = Player()
-    var playerHealth = player1.showHeals()
+    val player1 = Player("Hero", 100, 1)
 
     do {
-        println("Игрок ${player1.name} сражается с противником. Здоровье $playerHealth")
+        println("Игрок ${player1.name} сражается с противником. Здоровье ${player1.showHeals()}")
         val randomNumber = (NUMBER_1..NUMBER_2).random()
         if (randomNumber == NUMBER_1) {
-            playerHealth = player1.takeDamage(playerHealth)
-            println("Игрок ${player1.name} получил урон. Здоровье $playerHealth")
+            player1.takeDamage()
+            println("Игрок ${player1.name} получил урон. Здоровье ${player1.showHeals()}")
         } else {
-            playerHealth = player1.healing(playerHealth)
-            println("Игрок ${player1.name} выпил лечебное зелье. Здоровье $playerHealth")
+            player1.healing()
+            println("Игрок ${player1.name} выпил лечебное зелье. Здоровье ${player1.showHeals()}")
         }
-    } while (playerHealth > ZERO)
+    } while (player1.showHeals() > ZERO)
 
     player1.getHealthIsOver(player1)
 
     println("Игрок погиб.\nИгра закончена.")
 }
 
-class Player {
-
-    val name: String = "Hero"
-    private var health: Int = 1
-    var forceOfBlow: Int = 1
+class Player(
+    val name: String,
+    private var health: Int,
+    private var forceOfBlow: Int,
+) {
 
     fun showHeals() = health
 
-    fun takeDamage(_health: Int): Int {
-        val health2 = _health - NUMBER_1
-        return health2
+    fun takeDamage() {
+        health -= NUMBER_1
     }
 
-    fun healing(_health: Int): Int {
-        val health2 = _health + NUMBER_1
-        return health2
+    fun healing() {
+        if (health > ZERO) health += NUMBER_1
     }
 
     private fun healthIsOver() {
-        healing(ZERO).minus(healing(ZERO))
         forceOfBlow = ZERO
         health = ZERO
     }
