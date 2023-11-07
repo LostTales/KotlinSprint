@@ -2,29 +2,47 @@ package lesson_17
 
 fun main() {
 
-    val myFiles = Package()
+    val myFiles = Package("favorites", 70, false)
     println(myFiles.name)
     println()
     myFiles.isSecretFiles = true
     println(myFiles.name)
+    println()
+    myFiles.isSecretFiles = false
+    println(myFiles.name)
 }
 
-class Package {
+class Package(
 
-    var name: String = "favorites"
+    _name: String,
+    var files: Int,
+    var isSecretFiles: Boolean,
+) {
+
+    val name = _name
         get() {
             return if (isSecretFiles) {
-                files = 0
-                "${HIDDEN_DOCUMENTS} $NUMBER_OF_FILES $files"
+                "$HIDDEN_DOCUMENTS $NUMBER_OF_FILES $ZERO"
             } else {
                 "$field $NUMBER_OF_FILES $files"
             }
         }
 
-    var files: Int = 70
-
-    var isSecretFiles: Boolean = false
+//    var name: String = "favorites"
+//        get() {
+//            return if (isSecretFiles) {
+//                files = 0
+//                "${HIDDEN_DOCUMENTS} $NUMBER_OF_FILES $files"
+//            } else {
+//                "$field $NUMBER_OF_FILES $files"
+//            }
+//        }
+//
+//    var files: Int = 70
+//
+//    var isSecretFiles: Boolean = false
 }
 
-const val HIDDEN_DOCUMENTS = "скрытая папка"
-const val NUMBER_OF_FILES = "количество файлов"
+private const val HIDDEN_DOCUMENTS = "скрытая папка"
+private const val NUMBER_OF_FILES = "количество файлов"
+private const val ZERO = 0
