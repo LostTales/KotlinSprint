@@ -6,23 +6,31 @@ fun main() {
     println(myFiles.name)
     println()
     myFiles.isSecretFiles = true
-    println(myFiles.name)
+    println("${myFiles.name} $NUMBER_OF_FILES ${myFiles.files}")
     println()
     myFiles.isSecretFiles = false
     println(myFiles.name)
 }
 
 class Package(
-
     _name: String,
-    var files: Int,
+    _files: Int,
     var isSecretFiles: Boolean,
 ) {
+
+    val files = _files
+        get() {
+            return if (isSecretFiles) {
+                ZERO
+            } else {
+                field
+            }
+        }
 
     val name = _name
         get() {
             return if (isSecretFiles) {
-                "$HIDDEN_DOCUMENTS $NUMBER_OF_FILES $ZERO"
+                HIDDEN_DOCUMENTS
             } else {
                 "$field $NUMBER_OF_FILES $files"
             }
