@@ -31,6 +31,5 @@ class User17(
         }
         set(value) {
             if (value != field) println("\"Вы не можете изменить пароль\"")
-            field = password
         }
 }
