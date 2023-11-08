@@ -9,7 +9,6 @@ fun main() {
 }
 
 class NewShip(
-
     _name: String,
     val averageSpeed: Int,
     var homePort: String,
