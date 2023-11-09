@@ -19,22 +19,10 @@ class Package(
 ) {
 
     val files = _files
-        get() {
-            return if (isSecretFiles) {
-                ZERO
-            } else {
-                field
-            }
-        }
+        get() = if (isSecretFiles) ZERO else field
 
     val name = _name
-        get() {
-            return if (isSecretFiles) {
-                HIDDEN_DOCUMENTS
-            } else {
-                "$field $NUMBER_OF_FILES $files"
-            }
-        }
+        get() = if (isSecretFiles) HIDDEN_DOCUMENTS else "$field $NUMBER_OF_FILES $files"
 }
 
 private const val HIDDEN_DOCUMENTS = "скрытая папка"
