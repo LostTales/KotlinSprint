@@ -3,7 +3,7 @@ package lesson_16
 fun main() {
     println("Игра началась!")
 
-    val player1 = Player("Hero", 3, 1)
+    val player1 = Player("Hero", 100, 1)
 
     do {
         println("Игрок ${player1.name} сражается с противником. Здоровье ${player1.showHeals()}")
@@ -28,6 +28,8 @@ class Player(
     private var forceOfBlow: Int,
 ) {
 
+    var maxHealth = 100
+
     fun showHeals() = health
 
     fun takeDamage() {
@@ -35,7 +37,7 @@ class Player(
     }
 
     fun heal() {
-        if (health in NUMBER_1.. health) health += NUMBER_1
+        if (health in NUMBER_1..<maxHealth) health += NUMBER_1
     }
 
     private fun loseAllHealth() {
