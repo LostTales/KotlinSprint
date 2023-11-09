@@ -28,7 +28,10 @@ class Player(
     private var forceOfBlow: Int,
 ) {
 
-    var maxHealth = 100
+    private var maxHealth = health
+        set(value) {
+            if (value == field) field = value
+        }
 
     fun showHeals() = health
 
