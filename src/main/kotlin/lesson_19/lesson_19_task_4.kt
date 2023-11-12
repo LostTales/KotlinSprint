@@ -42,13 +42,12 @@ class Tank(
             }
 
             else -> {
-                println("Не заряжен.")
                 return null
             }
         }
     }
 
     fun fireAShot(damage: Int?) {
-        println("Произведен выстрел с уроном $damage")
+        if (damage == null) println("Не заряжен.") else println("Произведен выстрел с уроном $damage")
     }
 }
