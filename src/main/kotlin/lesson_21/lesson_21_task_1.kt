@@ -6,7 +6,7 @@ fun main() {
     someString.vowelCount()
 }
 
-fun String.vowelCount() {
+fun String.vowelCount(): Int {
 
     var numberOfVowels = 0
 
@@ -16,4 +16,5 @@ fun String.vowelCount() {
         }
     }
     println(numberOfVowels)
+    return numberOfVowels
 }
