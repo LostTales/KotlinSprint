@@ -7,6 +7,4 @@ fun main() {
     println(someString.vowelCount())
 }
 
-fun String.vowelCount() = this.count { it ->
-    (it == 'a') || (it == 'e') || (it == 'i') || (it == 'o') || (it == 'u')
-}
+fun String.vowelCount() = this.count { it -> it in "aeiou" }
