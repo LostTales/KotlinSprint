@@ -10,14 +10,13 @@ fun main() {
 
     val newList = listOf(regularBook1, regularBook2, dataBook1, dataBook2)
 
-    newList.forEach { println(regularBook1.equals(it)) }
+    newList.forEach { println(regularBook1 == it) }
     println()
-    newList.forEach { println(regularBook2.equals(it)) }
+    newList.forEach { println(regularBook2 == it) }
     println()
-    newList.forEach { println(dataBook1.equals(it)) }
+    newList.forEach { println(dataBook1 == it) }
     println()
-    newList.forEach { println(dataBook2.equals(it)) }
-
+    newList.forEach { println(dataBook2 == it) }
 }
 
 class RegularBook(
