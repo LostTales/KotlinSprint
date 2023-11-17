@@ -10,17 +10,12 @@ fun main() {
         4.22
     )
 
-    println(galacticGuide)
-
-    val (nameOfThePlaceOrEvent, descriptionOfThePlaceOrEvent,
-        dateAndTimeOfTheEvent, distanceOfAPlaceOrEventFromEarth) = galacticGuide
-
+    println(galacticGuide.component1())
+    println(galacticGuide.component2())
+    println(galacticGuide.component3())
+    println(galacticGuide.component4())
     println()
-
-    println(nameOfThePlaceOrEvent)
-    println(descriptionOfThePlaceOrEvent)
-    println(dateAndTimeOfTheEvent)
-    println(distanceOfAPlaceOrEventFromEarth)
+    println(galacticGuide.toString())
 }
 
 data class GalacticGuide(
@@ -31,10 +26,10 @@ data class GalacticGuide(
 ) {
     override fun toString(): String {
         return """
-            название места или события: $nameOfThePlaceOrEvent
-            описание места или события: $descriptionOfThePlaceOrEvent
-            дата и время события: $dateAndTimeOfTheEvent
-            расстояние места или события от Земли в световых годах: $distanceOfAPlaceOrEventFromEarth
+            название места или события: ${component1()}
+            описание места или события: ${component2()}
+            дата и время события: ${component3()}
+            расстояние места или события от Земли в световых годах: ${component4()}
         """.trimIndent()
     }
 }
