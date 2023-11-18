@@ -9,7 +9,4 @@ fun main() {
     println(hero.maxCategory())
 }
 
-fun Map<String, Int>.maxCategory(): String {
-
-    return (this.maxBy { it.value }).key
-}
+fun Map<String, Int>.maxCategory(): String = (this.maxBy { it.value }).key
