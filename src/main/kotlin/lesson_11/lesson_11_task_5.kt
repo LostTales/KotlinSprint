@@ -3,16 +3,18 @@ package lesson_11
 fun main() {
 
     val forum = Forum()
-    forum.createNewUser("Dina")
-    forum.createNewMessage("randomId")
-    forum.createNewUser("Irina")
-    forum.createNewMessage("randomId")
     forum.printThread()
 }
 
 class Forum(
-    var memberForumList: MutableList<ForumMember> = mutableListOf(),
-    val forumMessages: MutableList<ForumMessage> = mutableListOf(),
+    val memberForumList: MutableList<ForumMember> = mutableListOf(
+        ForumMember("randomId1", "Dina"),
+        ForumMember("randomId2", "Irina")
+    ),
+    val forumMessages: MutableList<ForumMessage> = mutableListOf(
+        ForumMessage("randomId1", "text1"),
+        ForumMessage("randomId2", "text2")
+    ),
 ) {
 
     fun createNewUser(newUserName: String): ForumMember {
@@ -24,9 +26,8 @@ class Forum(
         for (i in 1..idLength) {
             randomId += idData.random()
         }
-        val newId = randomId
 
-        val newUser = ForumMember(newId, newUserName)
+        val newUser = ForumMember(randomId, newUserName)
         memberForumList.add(newUser)
 
         return newUser
@@ -57,11 +58,9 @@ class Forum(
 }
 
 class ForumMember(
-    var userId: String,
+    val userId: String,
     val userName: String,
-) {
-
-}
+)
 
 class ForumMessage(
     val authorId: String,
